@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery | ABC Fitness Studio</title>
+<style>
+  :root {
+    --nourish-navy: #001F3F;
+    --bootcamp-blue: #20458E;
+    --pilates-purple: #634E99;
+    --box-jump-blue: #155EBC;
+    --wellness-gray: #D3D3D3;
+    --font-primary: #00231C;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; line-height:1.6; color: var(--font-primary); font-family: Calibri, Arial, Helvetica, sans-serif; }
+  h1,h2,h3,h4 { font-family: Arial, Helvetica, sans-serif; color: var(--nourish-navy); }
+  header { padding:16px; border-bottom:4px solid var(--bootcamp-blue); background:#fff; }
+  footer { padding:16px; border-top:4px solid var(--bootcamp-blue); background: var(--wellness-gray); }
+  .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+  nav ul { list-style:none; display:flex; gap:16px; margin:0; padding:0; flex-wrap:wrap; }
+  nav a { text-decoration:none; color: var(--box-jump-blue); }
+  nav a:hover { text-decoration:underline; color: var(--pilates_purple); }
+  main { padding:16px; }
+  .hero { display:grid; gap:24px; align-items:center; }
+  @media(min-width:800px) { .hero { grid-template-columns:1fr 1fr; } }
+  .grid-3 { display:grid; gap:16px; }
+  @media(min-width:800px) { .grid-3 { grid-template-columns: repeat(3,1fr); } }
+  .card { border:1px solid #ddd; border-radius:8px; padding:12px; background:#fff; }
+  .muted { color:#333; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #ddd; padding:12px; vertical-align:top; text-align:left; }
+  button { padding:8px 12px; cursor:pointer; background: var(--box-jump-blue); color:#fff; border:0; border-radius:6px; }
+  button:hover { background: var(--bootcamp-blue); }
+  .footer-grid { display:grid; gap:16px; }
+  @media(min-width:800px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+  .footer-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+  .inline-form { display:flex; gap:8px; flex-wrap:wrap; }
+  .inline-form input[type="email"] { flex:1 1 220px; padding:8px; }
+  dialog::backdrop { background: rgba(0,0,0,0.4); }
+  dialog { border:none; border-radius:8px; padding:0; max-width:680px; width:90%; }
+  .modal-header { padding:12px 16px; border-bottom:1px solid #eee; }
+  .modal-body { padding:16px; }
+  .modal-footer { display:flex; gap:12px; justify-content:flex-end; padding:12px 16px; border-top:1px solid #eee; }
+  header img{max-height:48px;height:auto;}
+</style>
+<script defer src="site.js"></script></head>
+<body onload="renderCartModal()">
+<header>
+  <div class="container">
+    <div style="display:flex; align-items:center; gap:16px; justify-content:space-between; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/logo.png" alt="ABC Fitness Studio logo" height="48">
+        <div>
+          <h1 style="margin:0; font-size:1.25rem;">Gallery</h1>
+          <p class="muted" style="margin:0;">ABC Fitness Studio</p>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <h2 style="margin:0;">Gallery</h2>
+    <button type="button" onclick="openCart()" aria-haspopup="dialog">View Cart</button>
+  </div>
+  <table role="table" aria-label="Products (3 by 3)">
+    <tr><td>
+  <figure>
+    <img src="assets/gallery1.png" alt="Individual yoga session" width="100%" height="auto">
+    <figcaption><strong>Individual yoga session</strong><br><span class="muted">One‑on‑one coaching to refine technique.</span><br><strong>$20.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i1", "name": "Individual yoga session", "price": 20.0})' aria-label="Add Individual yoga session to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery2.png" alt="Group yoga session" width="100%" height="auto">
+    <figcaption><strong>Group yoga session</strong><br><span class="muted">All levels welcome; mobility and calm.</span><br><strong>$12.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i2", "name": "Group yoga session", "price": 12.0})' aria-label="Add Group yoga session to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery3.png" alt="Individual Pilates session" width="100%" height="auto">
+    <figcaption><strong>Individual Pilates session</strong><br><span class="muted">Personalized core training and alignment.</span><br><strong>$22.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i3", "name": "Individual Pilates session", "price": 22.0})' aria-label="Add Individual Pilates session to cart">Add to Cart</button>
+</td></tr>
+<tr><td>
+  <figure>
+    <img src="assets/gallery4.png" alt="Group Pilates session" width="100%" height="auto">
+    <figcaption><strong>Group Pilates session</strong><br><span class="muted">Low‑impact group flow for core stability.</span><br><strong>$14.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i4", "name": "Group Pilates session", "price": 14.0})' aria-label="Add Group Pilates session to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery5.png" alt="Individual kickboxing session" width="100%" height="auto">
+    <figcaption><strong>Individual kickboxing session</strong><br><span class="muted">Pad work, technique, conditioning.</span><br><strong>$24.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i5", "name": "Individual kickboxing session", "price": 24.0})' aria-label="Add Individual kickboxing session to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery6.png" alt="Group kickboxing session" width="100%" height="auto">
+    <figcaption><strong>Group kickboxing session</strong><br><span class="muted">High‑energy class for cardio + power.</span><br><strong>$16.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i6", "name": "Group kickboxing session", "price": 16.0})' aria-label="Add Group kickboxing session to cart">Add to Cart</button>
+</td></tr>
+<tr><td>
+  <figure>
+    <img src="assets/gallery7.png" alt="Yoga mat" width="100%" height="auto">
+    <figcaption><strong>Yoga mat</strong><br><span class="muted">Non‑slip mat for studio or home practice.</span><br><strong>$25.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i7", "name": "Yoga mat", "price": 25.0})' aria-label="Add Yoga mat to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery8.png" alt="Water bottle" width="100%" height="auto">
+    <figcaption><strong>Water bottle</strong><br><span class="muted">Insulated stainless steel bottle (600 ml).</span><br><strong>$15.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i8", "name": "Water bottle", "price": 15.0})' aria-label="Add Water bottle to cart">Add to Cart</button>
+</td><td>
+  <figure>
+    <img src="assets/gallery9.png" alt="Tee shirt" width="100%" height="auto">
+    <figcaption><strong>Tee shirt</strong><br><span class="muted">Breathable performance tee with logo.</span><br><strong>$18.00</strong></figcaption>
+  </figure>
+  <button type="button" onclick='addToCart({"id": "i9", "name": "Tee shirt", "price": 18.0})' aria-label="Add Tee shirt to cart">Add to Cart</button>
+</td></tr>
+
+  </table>
+
+  <dialog id="cart-dialog" aria-labelledby="cart-title">
+    <div class="modal-header"><h3 id="cart-title" style="margin:0;">Your Cart</h3></div>
+    <div class="modal-body" id="cart-body"></div>
+    <div class="modal-footer">
+      <button type="button" onclick="clearCart()">Clear Cart</button>
+      <button type="button" onclick="processOrder()">Process Order</button>
+      <button type="button" onclick="closeCart()">Close</button>
+    </div>
+  </dialog>
+</main>
+<footer>
+  <div class="container footer-grid">
+    <section aria-labelledby="newsletter-heading">
+      <h3 id="newsletter-heading">Subscribe to our newsletter</h3>
+      <form class="inline-form" onsubmit="return subscribeNewsletter(event)">
+        <label for="subscribe-email" class="visually-hidden">Email</label>
+        <input id="subscribe-email" type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="muted" style="margin-top:8px;">Stored locally in your browser.</p>
+    </section>
+    <section>
+      <h3>Social</h3>
+      <p><a href="#" aria-label="Facebook">Facebook</a> <a href="#" aria-label="Instagram">Instagram</a> <a href="#" aria-label="X">X</a></p>
+    </section>
+    <section>
+      <h3>Navigate</h3>
+      <ul class="footer-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </section>
+  </div>
+  <div class="container" style="text-align:center; margin-top:8px;">
+    <small>&copy; <span id="year"></span> ABC Fitness Studio. All rights reserved.</small>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+</body></html>

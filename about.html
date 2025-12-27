@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us | ABC Fitness Studio</title>
+<style>
+  :root {
+    --nourish-navy: #001F3F;
+    --bootcamp-blue: #20458E;
+    --pilates-purple: #634E99;
+    --box-jump-blue: #155EBC;
+    --wellness-gray: #D3D3D3;
+    --font-primary: #00231C;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; line-height:1.6; color: var(--font-primary); font-family: Calibri, Arial, Helvetica, sans-serif; }
+  h1,h2,h3,h4 { font-family: Arial, Helvetica, sans-serif; color: var(--nourish-navy); }
+  header { padding:16px; border-bottom:4px solid var(--bootcamp-blue); background:#fff; }
+  footer { padding:16px; border-top:4px solid var(--bootcamp-blue); background: var(--wellness-gray); }
+  .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+  nav ul { list-style:none; display:flex; gap:16px; margin:0; padding:0; flex-wrap:wrap; }
+  nav a { text-decoration:none; color: var(--box-jump-blue); }
+  nav a:hover { text-decoration:underline; color: var(--pilates_purple); }
+  main { padding:16px; }
+  .hero { display:grid; gap:24px; align-items:center; }
+  @media(min-width:800px) { .hero { grid-template-columns:1fr 1fr; } }
+  .grid-3 { display:grid; gap:16px; }
+  @media(min-width:800px) { .grid-3 { grid-template-columns: repeat(3,1fr); } }
+  .card { border:1px solid #ddd; border-radius:8px; padding:12px; background:#fff; }
+  .muted { color:#333; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #ddd; padding:12px; vertical-align:top; text-align:left; }
+  button { padding:8px 12px; cursor:pointer; background: var(--box-jump-blue); color:#fff; border:0; border-radius:6px; }
+  button:hover { background: var(--bootcamp-blue); }
+  .footer-grid { display:grid; gap:16px; }
+  @media(min-width:800px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+  .footer-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+  .inline-form { display:flex; gap:8px; flex-wrap:wrap; }
+  .inline-form input[type="email"] { flex:1 1 220px; padding:8px; }
+  dialog::backdrop { background: rgba(0,0,0,0.4); }
+  dialog { border:none; border-radius:8px; padding:0; max-width:680px; width:90%; }
+  .modal-header { padding:12px 16px; border-bottom:1px solid #eee; }
+  .modal-body { padding:16px; }
+  .modal-footer { display:flex; gap:12px; justify-content:flex-end; padding:12px 16px; border-top:1px solid #eee; }
+  header img{max-height:48px;height:auto;}
+</style>
+<script defer src="site.js"></script></head>
+<body>
+<header>
+  <div class="container">
+    <div style="display:flex; align-items:center; gap:16px; justify-content:space-between; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="assets/logo.png" alt="ABC Fitness Studio logo" height="48">
+        <div>
+          <h1 style="margin:0; font-size:1.25rem;">About Us</h1>
+          <p class="muted" style="margin:0;">ABC Fitness Studio</p>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="container">
+  <section aria-labelledby="about">
+    <h2 id="about">About ABC Fitness Studio</h2>
+    <p>ABC Fitness Studio is a local fitness haven specializing in yoga, Pilates, kickboxing, and holistic health solutions. Our goal is to enhance visibility, foster community connections, and support bookings and equipment purchases online.</p>
+    <h3>Hours of Operation</h3>
+    <ul><li>Monday–Friday: 06:00–20:00</li><li>Saturday: 08:00–18:00</li><li>Sunday: Closed</li></ul>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h3 id="contact">Feedback & Custom Plan</h3>
+    <form onsubmit="return submitFeedback(event)">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555">
+
+      <label for="product">Session or Item (optional)</label>
+      <select id="product" name="product">
+        <option value="">-- Select an option --</option>
+        <option value="Individual yoga session">Individual yoga session</option><option value="Group yoga session">Group yoga session</option><option value="Individual Pilates session">Individual Pilates session</option><option value="Group Pilates session">Group Pilates session</option><option value="Individual kickboxing session">Individual kickboxing session</option><option value="Group kickboxing session">Group kickboxing session</option><option value="Yoga mat">Yoga mat</option><option value="Water bottle">Water bottle</option><option value="Tee shirt">Tee shirt</option>
+      </select>
+
+      <label for="details">Goals / Notes</label>
+      <textarea id="details" name="details" rows="6" required></textarea>
+
+      <label for="quantity">Quantity</label>
+      <input id="quantity" name="quantity" type="number" min="1" value="1">
+
+      <label for="deadline">Target Start Date</label>
+      <input id="deadline" name="deadline" type="date">
+
+      <div style="margin-top:12px;">
+        <button type="submit">Send</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </section>
+</main>
+<footer>
+  <div class="container footer-grid">
+    <section aria-labelledby="newsletter-heading">
+      <h3 id="newsletter-heading">Subscribe to our newsletter</h3>
+      <form class="inline-form" onsubmit="return subscribeNewsletter(event)">
+        <label for="subscribe-email" class="visually-hidden">Email</label>
+        <input id="subscribe-email" type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="muted" style="margin-top:8px;">Stored locally in your browser.</p>
+    </section>
+    <section>
+      <h3>Social</h3>
+      <p><a href="#" aria-label="Facebook">Facebook</a> <a href="#" aria-label="Instagram">Instagram</a> <a href="#" aria-label="X">X</a></p>
+    </section>
+    <section>
+      <h3>Navigate</h3>
+      <ul class="footer-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </section>
+  </div>
+  <div class="container" style="text-align:center; margin-top:8px;">
+    <small>&copy; <span id="year"></span> ABC Fitness Studio. All rights reserved.</small>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+</body></html>
