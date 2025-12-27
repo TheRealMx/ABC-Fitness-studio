@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="80" viewBox="0 0 360 80" role="img" aria-labelledby="title desc">
+  <title id="title">ABC Fitness Studio Logo (Light)</title>
+  <desc id="desc">Barbell icon with the text ABC Fitness Studio in Bootcamp Blue</desc>
+  <g fill="#20458E">
+    <rect x="8" y="36" width="80" height="8" rx="2" />
+    <rect x="20" y="28" width="8" height="24" rx="2" />
+    <rect x="34" y="22" width="8" height="36" rx="2" />
+    <rect x="54" y="22" width="8" height="36" rx="2" />
+    <rect x="68" y="28" width="8" height="24" rx="2" />
+    <circle cx="48" cy="40" r="30" fill="none" stroke="#20458E" stroke-width="6"/>
+  </g>
+  <text x="100" y="50" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#20458E" font-weight="700">ABC Fitness Studio</text>
+</svg>
